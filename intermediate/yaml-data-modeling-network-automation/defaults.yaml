@@ -1,0 +1,14 @@
+---
+# Default values applied to ALL devices
+data:
+  connection_timeout: 15
+  # Default SSH timeout if not specified elsewhere
+
+  auth_timeout: 10
+  # Default authentication timeout
+
+  read_timeout: 30
+  # Default command read timeout
+
+  ssh_config_file: null
+  # No custom SSH config by default

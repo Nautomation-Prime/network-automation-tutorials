@@ -1,0 +1,22 @@
+{% extends "base_config.j2" %}
+
+{% block device_specific %}
+! Router-specific settings
+ip routing
+router ospf {{ ospf.process_id }}
+{% for net in ospf.networks %}
+ network {{ net.network }} {{ net.wildcard }} area {{ net.area }}
+{% endfor %}
+{% endblock %}
+
+{% block interfaces %}
+{% for interface in interfaces %}
+interface {{ interface.name }}
+{% if interface.description is defined %}
+ description {{ interface.description }}
+{% endif %}
+ ip address {{ interface.ip }} {{ interface.mask }}
+ no shutdown
+!
+{% endfor %}
+{% endblock %}

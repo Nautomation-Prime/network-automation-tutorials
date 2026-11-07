@@ -1,0 +1,22 @@
+!
+! Base Configuration
+! Device: {{ hostname }}
+! Template: {{ template_name }}
+! Generated: {{ timestamp }}
+!
+hostname {{ hostname }}
+!
+{% block common_settings %}
+ip domain-name {{ domain_name }}
+ip name-server {{ dns_servers | join(' ') }}
+{% endblock %}
+!
+{% block device_specific %}
+! Device-specific configuration goes here
+{% endblock %}
+!
+{% block interfaces %}
+! Interface configuration
+{% endblock %}
+!
+end

@@ -1,0 +1,9 @@
+---
+ios_devices:
+  platform: cisco_ios
+  username: admin
+  password: ""                   # Will be overridden at runtime
+ios_routers:
+  platform: cisco_ios
+  username: admin
+  password: ""

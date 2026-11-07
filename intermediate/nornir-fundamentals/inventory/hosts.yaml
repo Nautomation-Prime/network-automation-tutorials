@@ -1,0 +1,28 @@
+---
+router1:
+  hostname: 192.168.1.1
+  groups:
+    - ios_devices
+  data:
+    device_type: cisco_ios
+
+router2:
+  hostname: 192.168.1.2
+  groups:
+    - ios_devices
+  data:
+    device_type: cisco_ios
+
+router3:
+  hostname: 192.168.1.3
+  groups:
+    - ios_routers
+  data:
+    device_type: cisco_ios
+
+switch1:
+  hostname: 192.168.1.10
+  groups:
+    - ios_devices
+  data:
+    device_type: cisco_ios

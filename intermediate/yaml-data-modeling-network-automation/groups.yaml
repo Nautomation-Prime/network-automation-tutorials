@@ -1,0 +1,22 @@
+---
+# Group definitions with shared settings
+ios_routers:
+  username: admin
+  password: ""  # Will be set at runtime (security)
+  data:
+    connection_timeout: 30
+    enable_password: ""
+
+ios_switches:
+  username: switch_admin
+  password: ""
+  data:
+    connection_timeout: 20
+    enable_password: ""
+
+nxos_devices:
+  username: nxos_admin
+  password: ""
+  data:
+    device_type: cisco_nxos
+    connection_timeout: 30

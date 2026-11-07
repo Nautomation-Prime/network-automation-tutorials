@@ -1,0 +1,4 @@
+netmiko>=4.3,<5
+nornir>=3.4,<4
+pyats[library]>=24.0
+pyyaml>=6.0

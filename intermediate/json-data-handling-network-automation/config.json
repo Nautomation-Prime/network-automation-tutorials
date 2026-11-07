@@ -1,0 +1,22 @@
+{
+  "api": {
+    "base_url": "https://api.example.com/v1",
+    "timeout": 30,
+    "retry_attempts": 3
+  },
+  "credentials": {
+    "api_key": "your_api_key_here"
+  },
+  "devices": [
+    {
+      "name": "router1",
+      "ip": "10.1.1.1",
+      "type": "cisco_ios"
+    },
+    {
+      "name": "router2",
+      "ip": "10.1.1.2",
+      "type": "cisco_ios"
+    }
+  ]
+}

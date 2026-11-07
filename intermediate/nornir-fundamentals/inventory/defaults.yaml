@@ -1,0 +1,6 @@
+---
+data:
+  connection_timeout: 10
+  auth_timeout: 5
+  ssh_config_file: null
+  secret: ""                     # Enable password (leave blank)

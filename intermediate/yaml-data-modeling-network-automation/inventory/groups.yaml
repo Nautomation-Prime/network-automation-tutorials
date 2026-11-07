@@ -1,0 +1,18 @@
+---
+# Device groups with shared settings
+ios_routers:
+  username: router_admin
+  data:
+    device_type: cisco_ios
+    connection_timeout: 30
+
+ios_switches:
+  username: switch_admin
+  data:
+    device_type: cisco_ios
+    connection_timeout: 20
+
+production:
+  data:
+    backup_schedule: "daily"
+    monitoring: true

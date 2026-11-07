@@ -1,0 +1,28 @@
+!
+! VLAN Configuration
+! Generated: {{ generation_date }}
+! Device: {{ hostname }}
+!
+hostname {{ hostname }}
+!
+{% for vlan in vlans %}
+vlan {{ vlan.id }}
+ name {{ vlan.name }}
+{% if vlan.description %}
+ description {{ vlan.description }}
+{% endif %}
+{% endfor %}
+!
+{% for interface, config in interfaces.items() %}
+interface {{ interface }}
+{% if config.mode == 'access' %}
+ switchport mode access
+ switchport access vlan {{ config.vlan }}
+{% elif config.mode == 'trunk' %}
+ switchport mode trunk
+ switchport trunk allowed vlan {{ config.allowed_vlans | join(',') }}
+{% endif %}
+ description {{ config.description }}
+ no shutdown
+!
+{% endfor %}

@@ -1,0 +1,14 @@
+{
+  "hostname": "router1",
+  "ip_address": "10.1.1.1",
+  "device_type": "cisco_ios",
+  "vlans": [10, 20, 30],
+  "interfaces": {
+    "GigabitEthernet0/0": {
+      "ip": "10.1.1.1",
+      "status": "up"
+    }
+  },
+  "enabled": true,
+  "uptime_seconds": 86400
+}

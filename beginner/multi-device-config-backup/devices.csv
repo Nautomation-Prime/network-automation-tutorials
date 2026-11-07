@@ -1,0 +1,4 @@
+device_type,host,username,secret
+cisco_ios,10.1.1.1,admin,
+cisco_ios,10.1.1.2,admin,
+cisco_nxos,10.1.1.10,admin,

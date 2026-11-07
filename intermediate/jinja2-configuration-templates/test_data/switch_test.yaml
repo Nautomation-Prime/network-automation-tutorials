@@ -1,0 +1,30 @@
+# Sample data added for the repo (the page doesn't show this file).
+# Built from data/devices.yaml and data/global_settings.yaml, merged the
+# way generate_configs.py merges them.
+---
+domain_name: example.com
+dns_servers:
+- 8.8.8.8
+- 8.8.4.4
+ntp_servers:
+- 0.pool.ntp.org
+- 1.pool.ntp.org
+syslog_server: 10.10.10.10
+snmp_community: public
+timezone: EST -5 0
+hostname: access-switch-01
+device_type: switch
+template: switch_config.j2
+management_ip: 10.1.1.10
+vlans:
+- id: 10
+  name: DATA
+- id: 20
+  name: VOICE
+interfaces:
+  GigabitEthernet0/1:
+    mode: access
+    vlan: 10
+    description: User port
+template_name: switch_config.j2
+timestamp: '2026-03-12 09:00:00'

@@ -1,0 +1,22 @@
+{% extends "base_config.j2" %}
+
+{% block device_specific %}
+! Switch-specific settings
+{% for vlan in vlans %}
+vlan {{ vlan.id }}
+ name {{ vlan.name }}
+{% endfor %}
+{% endblock %}
+
+{% block interfaces %}
+{% for name, interface in interfaces.items() %}
+interface {{ name }}
+{% if interface.description is defined %}
+ description {{ interface.description }}
+{% endif %}
+ switchport mode {{ interface.mode }}
+ switchport access vlan {{ interface.vlan }}
+ no shutdown
+!
+{% endfor %}
+{% endblock %}

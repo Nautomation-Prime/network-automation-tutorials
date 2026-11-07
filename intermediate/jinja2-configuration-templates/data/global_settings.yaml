@@ -1,0 +1,11 @@
+---
+domain_name: example.com
+dns_servers:
+  - 8.8.8.8
+  - 8.8.4.4
+ntp_servers:
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org
+syslog_server: 10.10.10.10
+snmp_community: public
+timezone: EST -5 0

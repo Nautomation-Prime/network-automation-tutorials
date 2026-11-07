@@ -1,0 +1,28 @@
+---
+# Network device inventory
+router1:
+  hostname: 10.1.1.1
+  groups:
+    - ios_routers
+    - production
+  data:
+    location: "NYC-DC1"
+    rack: "A-01"
+
+router2:
+  hostname: 10.1.1.2
+  groups:
+    - ios_routers
+    - production
+  data:
+    location: "NYC-DC1"
+    rack: "A-02"
+
+switch1:
+  hostname: 10.1.1.10
+  groups:
+    - ios_switches
+    - production
+  data:
+    location: "NYC-DC1"
+    rack: "A-03"

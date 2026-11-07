@@ -1,0 +1,36 @@
+---
+devices:
+  - hostname: core-router-01
+    device_type: router
+    template: router_config.j2
+    management_ip: 10.1.1.1
+    interfaces:
+      - name: GigabitEthernet0/0
+        ip: 192.168.1.1
+        mask: 255.255.255.0
+        description: "WAN Link"
+      - name: GigabitEthernet0/1
+        ip: 10.10.1.1
+        mask: 255.255.255.0
+        description: "LAN Link"
+    ospf:
+      process_id: 1
+      networks:
+        - network: 192.168.1.0
+          wildcard: 0.0.0.255
+          area: 0
+
+  - hostname: access-switch-01
+    device_type: switch
+    template: switch_config.j2
+    management_ip: 10.1.1.10
+    vlans:
+      - id: 10
+        name: DATA
+      - id: 20
+        name: VOICE
+    interfaces:
+      GigabitEthernet0/1:
+        mode: access
+        vlan: 10
+        description: "User port"

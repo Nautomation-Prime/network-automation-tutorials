@@ -1,0 +1,28 @@
+hostname {{ device.name }}
+!
+{% for vlan in device.vlans %}
+vlan {{ vlan.id }}
+ name {{ vlan.name }}
+{% endfor %}
+!
+{% for interface in device.interfaces %}
+interface {{ interface.name }}
+{% if interface.description %}
+ description {{ interface.description }}
+{% endif %}
+{% if interface.mode == 'access' %}
+ switchport mode access
+ switchport access vlan {{ interface.access_vlan }}
+{% elif interface.mode == 'unused' %}
+ description UNUSED
+ switchport mode access
+ switchport access vlan 999
+{% endif %}
+{% if not interface.enabled %}
+ shutdown
+{% else %}
+ no shutdown
+{% endif %}
+!
+{% endfor %}
+end

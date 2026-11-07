@@ -1,0 +1,4 @@
+ijson>=3.2
+jsonschema>=4.0
+netmiko>=4.3,<5
+requests>=2.31

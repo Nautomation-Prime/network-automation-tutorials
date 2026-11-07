@@ -1,0 +1,4 @@
+dnacentersdk>=2.6
+httpx>=0.25
+pynetbox>=7.0
+requests>=2.31

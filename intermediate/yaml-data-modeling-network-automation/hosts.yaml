@@ -1,0 +1,33 @@
+---
+# Individual device definitions
+router1:
+  hostname: 10.1.1.1
+  # IP address or DNS name for SSH connection
+
+  groups:
+    - ios_routers
+  # Device belongs to ios_routers group (inherits settings)
+
+  data:
+    # Custom data specific to this device
+    device_type: cisco_ios
+    location: "New York"
+    is_production: true
+
+switch1:
+  hostname: 10.1.1.10
+  groups:
+    - ios_switches
+  data:
+    device_type: cisco_ios
+    location: "New York"
+    vlan_range: "1-100"
+
+router2:
+  hostname: 10.2.1.1
+  groups:
+    - ios_routers
+  data:
+    device_type: cisco_ios
+    location: "Los Angeles"
+    is_production: false

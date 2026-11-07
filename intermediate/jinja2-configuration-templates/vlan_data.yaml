@@ -1,0 +1,33 @@
+---
+hostname: access-switch-01
+generation_date: "2026-03-12"
+
+vlans:
+  - id: 10
+    name: DATA
+    description: "Corporate data network"
+  - id: 20
+    name: VOICE
+    description: "VoIP phones"
+  - id: 30
+    name: GUEST
+    description: "Guest wireless"
+  - id: 99
+    name: MGMT
+    description: "Management"
+
+interfaces:
+  GigabitEthernet0/1:
+    mode: access
+    vlan: 10
+    description: "Workstation port"
+
+  GigabitEthernet0/2:
+    mode: access
+    vlan: 20
+    description: "IP Phone"
+
+  GigabitEthernet0/24:
+    mode: trunk
+    allowed_vlans: [10, 20, 30, 99]
+    description: "Trunk to distribution"

@@ -1,0 +1,32 @@
+name: Check lessons
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"     # weekly: catches upstream library changes
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install every lesson's requirements
+        run: |
+          cat */*/requirements.txt | grep -v '^#' | sort -u > all-requirements.txt
+          pip install ruff pytest -r all-requirements.txt
+
+      - name: Lint (syntax errors and undefined names)
+        run: ruff check --select E9,F63,F7,F82 .
+
+      - name: Beginner scripts, end to end against fake devices
+        run: pytest tests/ -q
+
+      - name: Every lesson
+        run: python scripts/check_lessons.py

@@ -1,0 +1,35 @@
+# Sample data added for the repo (the page doesn't show this file).
+# Built from data/devices.yaml and data/global_settings.yaml, merged the
+# way generate_configs.py merges them.
+---
+domain_name: example.com
+dns_servers:
+- 8.8.8.8
+- 8.8.4.4
+ntp_servers:
+- 0.pool.ntp.org
+- 1.pool.ntp.org
+syslog_server: 10.10.10.10
+snmp_community: public
+timezone: EST -5 0
+hostname: core-router-01
+device_type: router
+template: router_config.j2
+management_ip: 10.1.1.1
+interfaces:
+- name: GigabitEthernet0/0
+  ip: 192.168.1.1
+  mask: 255.255.255.0
+  description: WAN Link
+- name: GigabitEthernet0/1
+  ip: 10.10.1.1
+  mask: 255.255.255.0
+  description: LAN Link
+ospf:
+  process_id: 1
+  networks:
+  - network: 192.168.1.0
+    wildcard: 0.0.0.255
+    area: 0
+template_name: router_config.j2
+timestamp: '2026-03-12 09:00:00'

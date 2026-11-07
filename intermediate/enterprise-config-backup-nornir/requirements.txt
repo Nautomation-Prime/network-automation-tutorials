@@ -1,0 +1,4 @@
+netmiko>=4.3,<5
+nornir-netmiko>=1.0,<2
+nornir>=3.4,<4
+tabulate>=0.9

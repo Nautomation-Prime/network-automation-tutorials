@@ -1,0 +1,5 @@
+---
+# Default values applied to all devices
+data:
+  auth_timeout: 10
+  read_timeout: 30

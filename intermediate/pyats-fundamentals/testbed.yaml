@@ -1,0 +1,35 @@
+testbed:
+  name: "Lab Network"
+  # Testbed name — identifies this set of devices
+
+devices:
+  csr1000v:
+    # Device name — referenced in code as testbed.devices['csr1000v']
+    
+    type: router
+    # Device type (router, switch, firewall, etc.)
+    
+    os: iosxe
+    # OS determines parser used
+    # Genie has separate parsers for: ios, iosxe, nxos, ios-xr, junos, etc.
+    
+    credentials:
+      default:
+        # Credential set name — can have multiple (primary, secondary, etc.)
+        
+        username: admin
+        # Username for device login
+        
+        password: "%ENC{gAAAAABq...your encrypted value...}"
+        # Encrypted with `pyats secret encode` (see Step 3)
+    
+    connections:
+      cli:
+        protocol: ssh
+        # Protocol to use for connection (ssh recommended, telnet legacy)
+        
+        ip: 192.168.1.10
+        # Device IP or hostname
+        
+        port: 22
+        # SSH port (default 22)

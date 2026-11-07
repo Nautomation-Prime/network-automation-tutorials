@@ -1,0 +1,2 @@
+elasticsearch>=8.0
+nornir>=3.4,<4

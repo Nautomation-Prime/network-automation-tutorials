@@ -1,0 +1,2 @@
+prometheus-client>=0.17
+structlog>=23.1

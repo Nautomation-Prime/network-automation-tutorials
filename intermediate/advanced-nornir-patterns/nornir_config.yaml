@@ -1,0 +1,13 @@
+---
+runner:
+  plugin: threaded
+  options:
+    num_workers: 10
+inventory:
+  plugin: NetboxInventory
+  options:
+    nb_url: "https://netbox.yourcompany.com/api/"
+    # No nb_token here: Nornir would pass "${NETBOX_API_TOKEN}" through
+    # literally. The plugin reads NETBOX_API_TOKEN from the environment.
+    filters:
+      site: "new-york"  # Optional filter (site slug)

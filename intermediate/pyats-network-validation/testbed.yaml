@@ -1,0 +1,19 @@
+# testbed.yaml
+testbed:
+  name: "Production"
+
+devices:
+  switch-01:
+    type: switch
+    os: ios
+    credentials:
+      default:
+        username: "%ENV{PYATS_USERNAME}"
+        # Read from the environment when the testbed loads (ideal in CI)
+        password: "%ENC{gAAAAABq...}"
+        # Encrypted with 'pyats secret encode' using your own Fernet key
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.1.1.1
+        port: 22

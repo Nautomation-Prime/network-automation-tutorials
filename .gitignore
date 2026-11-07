@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Secrets: never commit these
+.env
+*.enc
+
+# Files the lessons create when you run them
+backups/
+configs/
+output/
+artefacts/
+*.xlsx
+*.db

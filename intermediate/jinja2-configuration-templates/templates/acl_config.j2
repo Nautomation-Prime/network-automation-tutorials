@@ -1,0 +1,30 @@
+!
+! Access Control Lists
+! Device: {{ hostname }}
+!
+{% for acl in acls %}
+{% if acl.type == 'standard' %}
+ip access-list standard {{ acl.name }}
+{% for rule in acl.rules %}
+ {{ rule.action }} {{ rule.source }}
+{% endfor %}
+{% elif acl.type == 'extended' %}
+ip access-list extended {{ acl.name }}
+{% for rule in acl.rules %}
+ {{ rule.action }} {{ rule.protocol }} {{ rule.source }} {{ rule.destination }}{{ ' eq ' ~ rule.port if rule.port is defined else '' }}
+{% endfor %}
+{% endif %}
+!
+{% endfor %}
+!
+! Apply ACLs to interfaces
+{% for interface, config in interface_acls.items() %}
+interface {{ interface }}
+{% if config.inbound is defined %}
+ ip access-group {{ config.inbound }} in
+{% endif %}
+{% if config.outbound is defined %}
+ ip access-group {{ config.outbound }} out
+{% endif %}
+!
+{% endfor %}

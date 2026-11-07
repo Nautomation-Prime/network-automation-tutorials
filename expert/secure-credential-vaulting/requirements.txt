@@ -1,0 +1,5 @@
+boto3>=1.28
+hvac>=2.0
+nornir>=3.4,<4
+pytest-asyncio>=0.21
+pytest>=7.0
